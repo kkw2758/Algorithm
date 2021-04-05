@@ -25,7 +25,7 @@ for way in plan:
 print(x, y)
 
 
-#답지풀이
+#해답 풀이
 #리스트 3개를 생성해서 이동위치, 이동위치에 따른(x,y) 좌표 이동값을 저장 
 n = int(input())
 plans = input().split()
