@@ -1,42 +1,40 @@
-m, n = map(int,input().split())
-x, y, d = map(int,input().split())
-
-move_types = [(-1,0), (0,1), (1,0), (0, -1)]
-
-board = []
-for i in range(m):
-    board.append(list(map(int,input().split())))
-
-board[x][y] = 2
+# 복습
+n, m = map(int, input().split())
+x, y, direction = map(int, input().split())
+table = [ list(map(int, input().split())) for _ in range(m) ]
+visited = [[0] * n for _ in range(m)]
+directions = [(-1,0), (0,1), (1,0), (0,-1)]
 
 count = 1
+visited[x][y] = 1
+
 while True:
     move = False
-    for i in range(4):
-        nx = x + move_types[(d - 1 - i)%4][0]
-        ny = y + move_types[(d - 1 - i)%4][1]
+    for cnt in range(1,5):
+        direction = (direction - 1)%4
+        nx = x + directions[direction][0]
+        ny = y + directions[direction][1]
 
-        if board[nx][ny] == 1:
+        if table[nx][ny] == 1 or visited[nx][ny] == 1: # 바다이거나 방문했다면 
             continue
-        elif board[nx][ny] == 0:
-            x = nx
-            y = ny
-            count += 1
-            board[x][y] = 2
-            move = True
-            d = (d - 1 - x)%4
-            break
-   
-    if not(move):
-        nx = x - move_types[d][0]
-        ny = y - move_types[d][1]
-        if board[nx][ny] == 1:
+        
+        move = True
+        x = nx
+        y = ny
+        count += 1
+        visited[x][y] = 1
+        break
+
+    if not move:
+        nx = x - directions[direction][0]
+        ny = y - directions[direction][1]
+        if table[nx][ny] == 1:
             break
         else:
             x = nx
             y = ny
 
-
 print(count)
-for x in board:
-    print(x)
+
+for row in table:
+    print(row)

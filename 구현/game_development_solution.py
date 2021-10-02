@@ -50,3 +50,6 @@ while True:
         turn_time = 0
 
 print(count)
+
+for _ in array:
+    print(_)

@@ -48,3 +48,26 @@ for plan in plans:
 
 
 print(x, y)
+
+
+#복습
+n = int(input())
+#L,R,U,D
+dx = [-1, 1, 0, 0]
+dy = [0, 0, -1, 1]
+move_types = ["L", "R", "U", "D"]
+
+x = 1
+y = 1
+
+plans = list(input().split())
+for x in plans:
+    for i in range(len(move_types)):
+        if x == move_types[i]:
+            nx = x + dx[i]
+            ny = y + dy[i]
+    
+    if nx < 1 or ny < 1 or nx > n or ny > n:
+        continue
+
+    x, y = nx, ny
