@@ -43,6 +43,48 @@ n, m = map(int, input().split())
 board = [list(map(int, list(input().strip()))) for row in range(n)]
 print(bfs())
 
+# 복습
+import sys
+from collections import deque
+n, m = map(int, input().split())
+table = []
+
+input = sys.stdin.readline
+
+for _ in range(n):
+    table.append(list(map(int, list(input().strip()))))
+
+def bfs_1():
+    visited = [[[0,0] for i in range(m)] for j in range(n)]
+    visited[0][0][1] = 1
+
+    queue = deque()
+    queue.append((0,0,1))
+    dx = [-1, 1, 0, 0]
+    dy = [0, 0 , -1 , 1]
+
+    while queue:
+        x, y, w = queue.popleft()
+
+        if x == n - 1 and y == m - 1:
+            return visited[x][y][w]
+
+        for i in range(4):
+            nx = x + dx[i]
+            ny = y + dy[i]
+            if nx < 0 or nx > n - 1 or ny < 0 or ny > m - 1:
+                continue
+            if w == 1 and table[nx][ny] == 1:
+                visited[nx][ny][0] = visited[x][y][w] + 1
+                queue.append((nx, ny, 0))
+
+            elif visited[nx][ny][w] == 0 and table[nx][ny] == 0:
+                visited[nx][ny][w] = visited[x][y][w] + 1
+                queue.append((nx, ny, w))
+    return -1
+
+print(bfs_1())
+
 '''
 # 나의 오답 코드
 # 벽을 깬여부를 추가한것 까진 좋았지만 방문처리를 제대로 해줄 방법을 생각하지 못했다..

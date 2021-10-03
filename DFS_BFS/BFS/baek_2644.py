@@ -39,7 +39,7 @@ else:
 
 
 
-'''
+
 #처음 생각한 풀이
 def bfs(start_vertex, target_vertex):
     queue = deque([start_vertex])
@@ -100,4 +100,50 @@ def bfs(start_vertex, target_vertex):
     return -1
 
 print(bfs(a, b))
-'''
+
+
+
+
+# 복습
+from collections import deque
+import sys
+
+input = sys.stdin.readline
+
+n = int(input())
+x, y = map(int, input().strip().split())
+m = int(input())
+graph = {}
+visited = [False for _ in range(n+1)]
+
+for i in range(m):
+    parent, child = map(int, input().strip().split())
+    if parent in graph:
+        graph[parent].append(child)
+    else:
+        graph[parent] = [child]
+    
+    if child in graph:
+        graph[child].append(parent)
+    else:
+        graph[child] = [parent]
+
+def bfs(start, target):
+    queue = deque()
+    queue.append((start, 0))
+
+    while queue:
+        node = queue.popleft()
+        visited[node[0]] = True
+
+        if node[0] == target:
+            return node[1]
+
+        for member in graph[node[0]]:
+            if not(visited[member]):
+                queue.append((member, node[1] + 1))
+        
+
+    return -1
+
+print(bfs(x, y))
