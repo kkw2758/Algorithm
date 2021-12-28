@@ -22,3 +22,39 @@ for i in range(3, n + 1):
     dp[i] = (dp[i - 1] + dp[i-2] * 2) % 796796
 
 print(dp[n])
+
+
+n = int(input())
+dp = [0] *(n + 1)
+
+
+#--------------------복습---------------------
+def bottom_up(n):
+    dp[1] = 1
+    dp[2] = 3
+    for i in range(3, n + 1):
+        dp[i] = (dp[i-1] + 2 * dp[i-2]) % 796796
+
+bottom_up(n)
+print(dp[n])
+
+n = int(input())
+dp = [0] * (n + 1)
+
+def top_down(n):
+    if n == 1:
+        dp[n] = 1
+        return
+    if n == 2:
+        dp[n] = 3
+    
+    if dp[n] != 0:
+        return
+    
+    top_down(n-2)
+    top_down(n-1)
+    dp[n] = dp[n-1] + 2 * dp[n-2]
+    return
+
+top_down(n)
+print(dp[n])

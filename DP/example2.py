@@ -1,6 +1,6 @@
 '''
 <개미전사>
-개미 저사는 부족한 식량을 충당하고자 메뚜기 마을의 식량창고를 몰래 공격하려고 한다.
+개미 전사는 부족한 식량을 충당하고자 메뚜기 마을의 식량창고를 몰래 공격하려고 한다.
 메뚜기 마을에는 여러 개의 식량창고가 있는데 식량창고는 일직선으로 이어져있다.
 각 식량창고에는 정해진 수의 식량을 저장하고 있으며 개미 젓는 식량창고를 선택적으로 약탈하여 식량을 빼앗을 예정이다.
 이때 메뚜기 정찰병들은 일직선상에 존재하는 식량창고 중에서 서로 인접한 식량창고가 공격받으면 바로 알아챌 수 있다.
@@ -44,3 +44,45 @@ for i in range(2, n):
     dp[i] = max(dp[i-1], array[i] + dp[i-2])
 
 print(dp[n - 1])
+
+
+#--------------------복습---------------------
+n = int(input())
+array = list(map(int, input().split()))
+dp = [0] * (n + 1)
+
+def bottop_up(array):
+    n = len(array)
+    dp[1] = array[-1]
+    dp[2] = max(array[-1], array[-2])
+
+    for i in range(3, n + 1):
+        dp[i] = max(array[-i] + dp[i-2], dp[i-1])
+
+bottop_up(array)
+print(dp[n])
+
+n = int(input())
+array = list(map(int, input().split()))
+dp = [0] *(n + 1)
+
+def top_down(n):
+    if n == 1:
+        dp[n] = array[-1]
+        return
+    if n == 2:
+        dp[n] = max(array[-1], array[-2])
+        return
+    if dp[n] != 0:
+        return
+
+    top_down(n-2)
+    top_down(n-1)
+    dp[n] = max(array[-n] + dp[n-2], dp[n-1])
+    return
+
+top_down(n)
+print(dp)
+print(dp[n])
+
+    

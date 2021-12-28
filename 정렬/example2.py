@@ -12,17 +12,34 @@ N명의 학생 정보가 있다. 학생 정보는 학생의 이름과 학생의 
 모든 학생의 이름을 성적이 낮은 순서대로 출력한다. 성적이 동일한 학생들의 순서는 자유롭게 출력해도 괜찮다.
 '''
 
-n = int(input())
-array = []
+# n = int(input())
+# array = []
 
+# for _ in range(n):
+#     name, score = input().split()
+#     array.append((name,int(score)))
+
+# def setting(data):
+#     return data[1]
+
+# array = sorted(array, key = setting)
+
+# for member in array:
+#     print(member[0], end = " ")
+
+
+
+n = int(input())
+tmp = []
 for _ in range(n):
     name, score = input().split()
-    array.append((name,int(score)))
+    score = int(score)
+    tmp.append((name, score))
 
 def setting(data):
     return data[1]
 
-array = sorted(array, key = setting)
+tmp = sorted(tmp, key = setting, reverse=False)
 
-for member in array:
-    print(member[0], end = " ")
+for idx in range(len(tmp)):
+    print(tmp[idx][0], end = " ")

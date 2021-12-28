@@ -51,3 +51,22 @@ for i in range(N - 1, -1, -1):
     countSum[A[i]] -= 1
 
 print(B)
+
+
+
+def count_sort(array):
+    max_value = max(array)
+    min_value = min(array)
+    n = max_value - min_value + 1
+
+    tmp_list = [0 for x in range(n)]
+    for member in array:
+        tmp_list[member-min_value] += 1
+
+    for member in range(len(tmp_list)):
+        if tmp_list[member] != 0:
+            for x in range(tmp_list[member]):
+                print(member + min_value, end = " ")
+
+
+count_sort([7,5,9,0,3,1,6,2,9,1,4,8,0,5,2])

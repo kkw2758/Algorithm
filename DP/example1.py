@@ -64,3 +64,54 @@ def example1(x):
         
 example1(x)
 print(dp[x])
+
+#--------------------복습---------------------
+import sys
+sys.setrecursionlimit(1000000)
+
+n = int(input())
+dp = [0] * 30001
+
+def top_down(n):
+    if n == 1:
+        return 0
+    
+    if dp[n] != 0:
+        return dp[n]
+    
+    dp[n] = top_down(n-1) + 1
+    
+    if n % 2 == 0:
+        dp[n] = min(dp[n], top_down(n//2) + 1)
+    if n % 3 == 0:
+        dp[n] = min(dp[n], top_down(n//3) + 1)
+    if n % 5 == 0:
+        dp[n] = min(dp[n], top_down(n//5) + 1)
+    
+    return dp[n]
+
+print(top_down(n))
+
+
+n = int(input())
+dp = [0] * 30001
+
+def top_down2(n):
+    if n == 1:
+        return
+    
+    if dp[n] != 0:
+        return
+    top_down2(n-1)
+    dp[n] = dp[n-1] + 1
+    
+    if n % 2 == 0:
+        dp[n] = min(dp[n], dp[n//2] + 1)
+    if n % 3 == 0:
+        dp[n] = min(dp[n], dp[n//3] + 1)
+    if n % 5 == 0:
+        dp[n] = min(dp[n], dp[n//5] + 1)
+    
+
+top_down2(n)
+print(dp[n])

@@ -21,3 +21,14 @@ array.sort(reverse = True)
 for member in array:
     print(member, end = " ")
 
+
+
+n = int(input())
+tmp_list = []
+for _ in range(n):
+    tmp_list.append(int(input()))
+
+tmp_list.sort(reverse=True)
+
+for idx in range(len(tmp_list)):
+    print(tmp_list[idx], end = " ")

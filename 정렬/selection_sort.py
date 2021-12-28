@@ -1,13 +1,11 @@
-array = [3,2,5,8,6,7]
+array = [7, 5, 9, 0, 3, 1, 6, 2, 4, 8]
 
-def selection_sort(array):
-    for i in range(len(array) - 1):
-        min_idx = i
-        for j in range(i,len(array)):
-            if array[j] < array[min_idx]:
-                min_idx = j
+for i in range(len(array) - 1):
+    min_idx = i
+    for j in range(i + 1, len(array)):
+        if array[min_idx] > array[j]:
+            min_idx = j
 
-        array[min_idx],array[i] = array[i], array[min_idx]
-    return array
+    array[min_idx], array[i] = array[i],array[min_idx]
 
-print(selection_sort(array))
+print(array)

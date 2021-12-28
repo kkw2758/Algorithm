@@ -1,14 +1,11 @@
 def lower_bound(array, start, end, value):
     while start < end:
         mid = (start + end) // 2
-        # mid = start + (end - start)//2
 
         if array[mid] >= value:
             end = mid
         else:
             start = mid + 1
-    
-    print(start == end)
     return start
 
 array = list(map(int, input().split()))

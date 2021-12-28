@@ -19,7 +19,7 @@ def quick_sort(array, start, end):
 
         if left > right: # 엇갈렸다면 작은 데이터와 피벗을 교체
             array[right], array[pivot] = array[pivot], array[right]
-        else:   # 엇갈리지 않았다면 작은 데이터와 큰 데이털르 교체
+        else:   # 엇갈리지 않았다면 작은 데이터와 큰 데이터를 교체
             array[left], array[right] = array[right], array[left]
 
     # 분할 이후 왼쪽 부분과 오른쪽 부분에서 각각 정렬 수행
@@ -46,3 +46,43 @@ def quick_sort(array):
     return quick_sort(left_side) + [pivot] + quick_sort(right_side)
 
 print(quick_sort(array))
+
+
+
+def quick_sort(array):
+    n = len(array)
+    if n == 1 or n == 0:
+        return array
+    pivot = array[0]
+    left = 1
+    right = n-1
+    while left <= right:
+        # for x in range(1,n):
+        #     if pivot > array[x]:
+        #         left += 1
+        #     else:
+        #         break
+        
+        # for y in range(n-1,0,-1):
+        #     if pivot < array[y]:
+        #         right -= 1
+        #     else:
+        #         break
+        while left <= n-1 and array[left] <= array[0]:
+            left += 1
+        
+        while right > 0 and array[right] >= array[0]:
+            right -=1
+
+
+        if left < right:
+            array[left],array[right] = array[right],array[left]
+        else:
+            array[0],array[right] = array[right],array[0]
+
+        print(left,right)
+        print(array)
+
+    return quick_sort(array[:right]) + [array[right]] + quick_sort(array[right+1:])
+
+print(quick_sort([5,7,9,3,0]))

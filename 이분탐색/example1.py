@@ -170,3 +170,69 @@ for i in x:
         print("yes", end = " ")
     else:
         print("no", end = " ")
+
+
+n = int(input())
+n_list = list(map(int, input().split()))
+m = int(input())
+m_list = list(map(int, input().split()))
+
+n_list.sort()
+
+def recursive_binary_search(sorted_array, start, end, target):
+    if start > end:
+        return False
+
+    mid = (start + end)//2
+    if sorted_array[mid] == target:
+        return mid
+    elif sorted_array[mid] > target:
+        return recursive_binary_search(sorted_array, start, mid-1, target)
+    else:
+        return recursive_binary_search(sorted_array, mid + 1, end, target)
+
+for m in m_list:
+    if recursive_binary_search(n_list, 0, n-1,m):
+        print("yes", end=" ")
+    else:
+        print("no", end=" ")
+
+def count_sort(array):
+    max_value = max(array)
+    min_value = min(array)
+    tmp_list = [0 for _ in range(max_value - min_value + 1)]
+    result_list = []
+    
+    for idx in range(len(array)):
+        tmp_list[array[idx] - min_value] += 1
+
+    for i in range(len(tmp_list)):
+        for j in range(tmp_list[i]):
+            result_list.append(i + min_value)
+
+    return result_list
+
+n = int(input())
+n_list = list(map(int, input().split()))
+m = int(input())
+m_list = list(map(int, input().split()))
+
+n_list = count_sort(n_list)
+
+def recursive_binary_search(sorted_array, start, end, target):
+    if start > end:
+        return False
+
+    mid = (start + end)//2
+    if sorted_array[mid] == target:
+        return mid
+    elif sorted_array[mid] > target:
+        return recursive_binary_search(sorted_array, start, mid-1, target)
+    else:
+        return recursive_binary_search(sorted_array, mid + 1, end, target)
+
+for m in m_list:
+    if recursive_binary_search(n_list, 0, n-1,m):
+        print("yes", end=" ")
+    else:
+        print("no", end=" ")

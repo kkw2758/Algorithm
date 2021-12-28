@@ -33,3 +33,19 @@ print(sum(a))
 # 내가 생각한풀이
 # A를 오름차순으로 정렬, B를 내림차순으로 정렬
 # B의 최댓값과 A의 최솟값을 비교하여 B의 최댓값이 A의 최솟값보다 크면 바꾸고 그게 아니라면 B의 값이 A의 최솟값보다 전부 작다는 뜻이므로 바꿀필요가없다.
+
+
+n, k = map(int, input().split())
+A = [x for x in list(map(int, input().split()))]
+B = [x for x in list(map(int, input().split()))]
+
+
+A.sort()
+B.sort(reverse=True)
+for idx in range(k):
+    if A[idx] < B[idx]:
+        A[idx], B[idx] = B[idx], A[idx]
+    else:
+        break
+
+print(sum(A))

@@ -45,4 +45,19 @@ for i in range(1, len(array)):
     array[j + 1] = key
 
 print(array)
+
+array = [7, 5, 9, 0, 3, 1, 6, 2, 4, 8]
+
+
+for i in range(1, len(array)):
+    tmp_idx = i
+    for j in range(i,0,-1):
+        if array[i] > array[j-1]:
+            tmp_idx = j
+            break
+        tmp_idx = j-1
+
+    target_value = array.pop(i)
+    array.insert(tmp_idx, target_value)
     
+print(array)

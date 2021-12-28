@@ -51,3 +51,48 @@ if dp[m] == 10001:
     print(-1)
 else:
     print(dp[m])
+
+
+#--------------------복습---------------------
+n, m = map(int, input().split())
+coins = []
+for _ in range(n):
+    coins.append(int(input()))
+
+dp = [10001] * (m + 1)
+dp[0] = 0
+def top_down(n):
+    if dp[n] != 10001:
+        return
+    for coin in coins:
+        if n >= coin:
+            top_down(n-coin)
+            dp[n] = min(dp[n], dp[n-coin] + 1)
+
+top_down(m)
+if dp[m] == 10001:
+    print(-1)
+else:
+    print(dp[m])
+
+
+
+n, m = map(int, input().split())
+coins = []
+for _ in range(n):
+    coins.append(int(input()))
+
+dp = [10001] * (m + 1)
+dp[0] = 0
+
+def bottom_up(n):
+    for i in range(1, n + 1):
+        for coin in coins:
+            if i >= coin:
+                dp[i] = min(dp[i-coin] + 1, dp[i])
+
+bottom_up(m)
+if dp[m] == 10001:
+    print(-1)
+else:
+    print(dp[m])

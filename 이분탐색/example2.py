@@ -38,11 +38,8 @@ def binary_search(start, end, array):
     for member in array:
         if member - mid > 0:
             sum = sum + member - mid
-    if sum == m:
+    if sum >= m:   # 자른 떡의 길이가 손님이 요구한 떡보다 길면?
         h = mid
-        return
-    elif sum > m:   # 자른 떡의 길이가 손님이 요구한 떡보다 길면?
-        h = max(h , mid)
         binary_search(mid + 1, end, array)
     else:
         binary_search(start, mid - 1, array)
@@ -51,24 +48,22 @@ def binary_search(start, end, array):
 binary_search(min_value, max_value, array)
 print(h)
 
+n, m = map(int, input().split())
+tmp_list = list(map(int, input().split()))
 
-n, m = map(int,input().split())
-array = list(map(int, input().split()))
-
-start = min(array)
-end = max(array)
-
+start = 0
+end = max(tmp_list)
 result = 0
 
 while start <= end:
-    mid = (start + end) // 2
+    sum = 0
+    mid = (end + start)//2
 
-    total = 0
-    for x in array:
+    for x in tmp_list:
         if x > mid:
-            total = total + x - mid
-    
-    if total < m:
+            sum += x - mid
+
+    if m > sum:
         end = mid - 1
     else:
         result = mid
