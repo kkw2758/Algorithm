@@ -71,3 +71,31 @@ print(result)
 11100011111111
 11100011111111
 '''
+
+
+dx = [0, 0, -1, 1]
+dy = [-1, 1, 0, 0]
+    
+def ice_juice(graph):
+    cnt = 0
+    for y in range(n):
+        for x in range(m):
+            if graph[y][x] == 0:
+                cnt += 1
+                stack = []
+                stack.append((y,x))
+                graph[y][x] = 1
+            
+                while stack:
+                    ay,ax = stack.pop()
+                    for idx in range(4):
+                        nx = ax + dx[idx]
+                        ny = ay + dy[idx]
+                        if nx >=0 and nx < m and ny >=0 and ny < n:
+                            if graph[ny][nx] == 0:
+                                graph[ny][nx] = 1
+                                stack.append((ny,nx))
+    return cnt
+n, m = map(int, input().split())
+graph = [list(map(int, list(input()))) for _ in range(n)]
+print(ice_juice(graph))
