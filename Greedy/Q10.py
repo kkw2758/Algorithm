@@ -62,6 +62,12 @@ def solution(key, lock):
 
 print(solution(key,lock))
 
+
+
+
+
+
+
 def rotate_a_matrix_by_90_degree(a):
     n = len(a)
     m = len(a[0])
