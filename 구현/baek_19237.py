@@ -155,7 +155,9 @@ for i in range(n):
 
 directions = list(map(int, input().split()))
 
-smell = [[[0,0]] * n for _ in range(n)]
+# smell[i][j][0] > 냄새의 주인 번호
+# smell[i][j][1] > 냄새가 남아있는 시간
+smell = [ [[0,0]] * n for _ in range(n)]
 
 priorities = [[] for _ in range(m)]
 for i in range(m):
@@ -164,8 +166,6 @@ for i in range(m):
 
 dx = [-1, 1, 0, 0]
 dy = [0, 0, -1, 1]
-
-print(smell)
 
 def update_smell():
   for i in range(n):
@@ -183,8 +183,8 @@ def move():
         direction = directions[array[x][y] - 1]
         found = False
         for index in range(4):
-          nx = x + dx[priorities[array[x][y] - 1][direction -1][index] - 1]
-          ny = y + dy[priorities[array[x][y] - 1][direction -1][index] - 1]
+          nx = x + dx[priorities[array[x][y] - 1][direction - 1][index] - 1]
+          ny = y + dy[priorities[array[x][y] - 1][direction - 1][index] - 1]
           if 0 <= nx < n and 0 <= ny < n:
             if smell[nx][ny][1] == 0:
               directions[array[x][y] - 1] = priorities[array[x][y] - 1][direction - 1][index]
@@ -193,15 +193,16 @@ def move():
                 new_array[nx][ny] = array[x][y]
               else:
                 new_array[nx][ny] = min(new_array[nx][ny], array[x][y])
+              
               found = True
               break
-          
+
         if found:
           continue
-
+        
         for index in range(4):
-          nx = x + dx[priorities[array[x][y] - 1][direction -1][index] - 1]
-          ny = y + dy[priorities[array[x][y] - 1][direction -1][index] - 1]
+          nx = x + dx[priorities[array[x][y] - 1][direction - 1][index] - 1]
+          ny = y + dy[priorities[array[x][y] - 1][direction - 1][index] - 1]
           if 0 <= nx < n and 0 <= ny < n:
             if smell[nx][ny][0] == array[x][y]:
               directions[array[x][y] - 1] = priorities[array[x][y] - 1][direction - 1][index]
@@ -215,12 +216,13 @@ while True:
   new_array = move()
   array = new_array
   time += 1
-
+  
   check = True
   for i in range(n):
     for j in range(n):
       if array[i][j] > 1:
         check = False
+
   if check:
     print(time)
     break
