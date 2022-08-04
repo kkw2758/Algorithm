@@ -130,15 +130,6 @@ cnt = 0
 
 while True:
     x, y = snake_list[-1]
-    # if direction_information:
-    #     if cnt == direction_information[0][0]:
-    #         direction = direction_information.pop(0)[1]
-    #         if direction == "D":
-    #             direction_idx = (direction_idx + 1) % 4
-    #         else:
-    #             direction_idx = (direction_idx - 1) % 4
-
-    # print("now_direction = {}".format(direction_idx))
     nx, ny = x + dx[direction_idx], y + dy[direction_idx]
     cnt += 1
     if not(0 <= nx < n and 0 <= ny < n):    # 범위안에 안들어오면
