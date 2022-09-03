@@ -14,3 +14,9 @@ for i in range(len(problem)):
   result -= sum(b)
 
 print(result)
+
+def solve(arr):
+  sorted_arr = sorted(arr)
+  d = {x: idx for idx, x in enumerate(sorted_arr)}
+  return [d[x] for x in arr]
+N = input()
