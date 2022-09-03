@@ -1,4 +1,4 @@
-# 2022/09/02 Baek 7569
+2022/09/02 Baek 7569
 
 import sys, heapq
 
@@ -57,5 +57,63 @@ def check_result():
         if graph[z][y][x] == 1:
           max_value = max(max_value, distance[z][y][x])
   return max_value
+
+print(check_result())
+
+
+import sys
+from collections import deque
+
+input = sys.stdin.readline
+INF = int(1e9)
+M, N, H = map(int, input().split())
+graph = [[[0] * M for _ in range(N)] for _ in range(H)]
+distance = [[[INF] * M for _ in range(N)] for _ in range(H)]
+
+tomatoes = []
+for z in range(H):
+  for y in range(N):
+    temp = list(map(int, input().rstrip().split()))
+    for x in range(M):
+      if temp[x] == 1:
+        tomatoes.append((z, y, x))
+      graph[z][y][x] = temp[x]
+
+dx = [0, 0, -1, 1, 0, 0]
+dy = [-1, 1, 0, 0, 0, 0]
+dz = [0, 0, 0, 0, -1, 1]
+
+def bfs(start_z, start_y, start_x):
+  queue = deque()
+  queue.append((start_z, start_y, start_x))
+  distance[start_z][start_y][start_x] = 0
+
+  while queue:
+    z, y, x = queue.popleft()
+    dist = distance[z][y][x]
+    for idx in range(6):
+      nx = x + dx[idx]
+      ny = y + dy[idx]
+      nz = z + dz[idx]
+      if 0 <= nx < M and 0 <= ny < N and 0 <= nz < H:
+        if graph[nz][ny][nx] != -1:
+          if dist + 1 < distance[nz][ny][nx]:
+            distance[nz][ny][nx] = dist + 1
+            graph[nz][ny][nx] = 1
+            queue.append((nz, ny, nx))
+
+def check_result():
+  max_value = 0
+  for z in range(H):
+    for y in range(N):
+      for x in range(M):
+        if graph[z][y][x] == 0:
+          return -1
+        if graph[z][y][x] == 1:
+          max_value = max(max_value, distance[z][y][x])
+  return max_value
+
+for tomato in tomatoes:
+  bfs(tomato[0], tomato[1], tomato[2])
 
 print(check_result())
