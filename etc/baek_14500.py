@@ -130,7 +130,6 @@ print(ans)
 import sys
 input = sys.stdin.readline
 
-
 N, M = map(int, input().split())
 graph = []
 for _ in range(N):

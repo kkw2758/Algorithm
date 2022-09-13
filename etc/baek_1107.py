@@ -43,6 +43,7 @@ if result1 > result2:
 else:
   print(result1)
 
+#참고 풀잉
 #https://seongonion.tistory.com/99
 import sys
 input = sys.stdin.readline

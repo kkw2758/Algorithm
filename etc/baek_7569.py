@@ -1,4 +1,4 @@
-2022/09/02 Baek 7569
+# 2022/09/02 Baek 7569
 
 import sys, heapq
 

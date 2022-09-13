@@ -31,7 +31,7 @@ def dijkstra(start):
   return distance
 
 distance = sorted(dijkstra(Y))
-cnt = 1
+cnt = 0
 if max(distance) * 2 > X:
   print(-1)
 else:
@@ -42,4 +42,6 @@ else:
     else:
       cnt += 1
       temp = (distance[i] * 2)
+  if temp < X:
+    cnt += 1
   print(cnt)

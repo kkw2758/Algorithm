@@ -8,7 +8,6 @@ def factorial(n):
 
 n = int(input())
 fact = factorial(n)
-print(fact)
 cnt = 0
 while True:
   if fact % 10 != 0:

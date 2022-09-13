@@ -1,42 +1,42 @@
-# # 2022/08/25 Baek 20168
+# 2022/08/25 Baek 20168
 
-# import heapq
+import heapq
 
-# def dijkstra(start):
-#   global result
-#   h = []
-#   heapq.heappush(h, [0, 0, start])
-#   while h:
-#     max_cost, total_cost, now = heapq.heappop(h)
-#     if total_cost > c:
-#       continue
-#     for x in graph[now]:
-#       cost = total_cost + x[1]
-#       if cost > c or visited[now][x[0]]:
-#         continue
-#       elif x[0] == b:
-#         result = min(result, max(max_cost, x[1]))
-#       visited[now][x[0]] = True
-#       heapq.heappush(h, [max(max_cost, x[1]), cost, x[0]])
+def dijkstra(start):
+  global result
+  h = []
+  heapq.heappush(h, [0, 0, start])
+  while h:
+    max_cost, total_cost, now = heapq.heappop(h)
+    if total_cost > c:
+      continue
+    for x in graph[now]:
+      cost = total_cost + x[1]
+      if cost > c or visited[now][x[0]]:
+        continue
+      elif x[0] == b:
+        result = min(result, max(max_cost, x[1]))
+      visited[now][x[0]] = True
+      heapq.heappush(h, [max(max_cost, x[1]), cost, x[0]])
 
-# INF = int(1e9)
-# n, m ,a, b, c = list(map(int, input().split()))
+INF = int(1e9)
+n, m ,a, b, c = list(map(int, input().split()))
 
-# graph = [[] for _ in range(n + 1)]
-# for _ in range(m):
-#   start, end, cost = map(int, input().split())
-#   graph[start].append((end, cost))
-#   graph[end].append((start, cost))
+graph = [[] for _ in range(n + 1)]
+for _ in range(m):
+  start, end, cost = map(int, input().split())
+  graph[start].append((end, cost))
+  graph[end].append((start, cost))
 
-# result = INF
-# visited = [[False for _ in range(n + 1)] for _ in range(n + 1)]
+result = INF
+visited = [[False for _ in range(n + 1)] for _ in range(n + 1)]
 
-# dijkstra(a)
+dijkstra(a)
 
-# if result != INF:
-#   print(result)
-# else:
-#   print(-1)
+if result != INF:
+  print(result)
+else:
+  print(-1)
 
 
 

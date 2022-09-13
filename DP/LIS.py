@@ -68,4 +68,4 @@ for x in range(n):
   else:
     dp[idx] = arr[x]
 
-print(len(dp))
+print(len(dp))  

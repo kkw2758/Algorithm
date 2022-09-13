@@ -5,7 +5,6 @@
 # q1 - 최소힙/ q2 - 최대힙
 # 동기화 과정에서 q1이나 q2를 아예 초기화 한다음에 heapq.heappush를 실행해 시간초과
 import heapq
-from multiprocessing import heap
 import sys
 
 input = sys.stdin.readline
