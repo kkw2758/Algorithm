@@ -1,4 +1,4 @@
-#2022/10/12 baek_20055
+#2022/10/12 baek 20055
 
 import sys
 input = sys.stdin.readline
