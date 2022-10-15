@@ -31,7 +31,9 @@
 # 2022/09/09 Baek 11286
 
 import heapq
+import sys
 
+input = sys.stdin.readline
 N = int(input())
 
 q = []

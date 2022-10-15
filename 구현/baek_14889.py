@@ -1,4 +1,4 @@
-#2022/10/11 baek_14889
+# 2022/10/11 baek 14889
 
 # brute-force
 from itertools import combinations

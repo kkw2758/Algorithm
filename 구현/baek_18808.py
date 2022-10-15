@@ -67,7 +67,7 @@
 #         print()
 #         break
 
-# 2022/10/11 baek 18808
+# 2022/10/15 baek 18808
 import sys
 input = sys.stdin.readline
 

@@ -17,6 +17,6 @@ for i in range(1, N + 1):
   else:
     j = i + ary[i][0] - 1
     dp[j] = max(dp[j], max_value + ary[i][1])
-    print(i, dp)
+    # print(i, dp)
 
 print(max(dp))

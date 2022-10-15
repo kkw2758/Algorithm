@@ -13,5 +13,5 @@ for i in range(1, N + 1):
   else:
     for j in range(1, ary[i][1] + 1):
       dp[i] = max(dp[i], dp[ary[i][1 + j]] + ary[i][0])
-  print(dp)
+  # print(dp)
 print(max(dp))
