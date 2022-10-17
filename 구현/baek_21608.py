@@ -73,3 +73,56 @@ for x in range(1, n + 1):
     result += score[cnt]
 
 print(result)
+
+# 인터넷을 참고한 정리된 코드
+import sys
+input = sys.stdin.readline
+
+dr = [-1, 1, 0 ,0]
+dc = [0, 0, -1, 1]
+
+n  = int(input())
+arr = [[0] * n for _ in range(n)]
+students = []
+
+for _ in range(n**2):
+  students.append(list(map(int, input().split())))
+
+for order in range(n**2):
+  student = students[order]
+  # 가능한 자리 저장
+  tmp = []
+  for i in range(n):
+    for j in range(n):
+      if arr[i][j] == 0:
+        like = 0
+        blank = 0
+        for k in range(4):
+          nr = i + dr[k]
+          nc = j + dc[k]
+          if 0 <= nr < n and 0 <= nc < n:
+            if arr[nc][nr] in student[1:]:
+              like += 1
+            if arr[nc][nr] == 0:
+              blank += 1
+        tmp.append([like, blank, i, j])
+  tmp.sort(key = lambda x:(-x[0], -x[1], x[2], x[3]))
+  arr[tmp[0][2]][tmp[0][3]] = student[0]
+
+result = 0
+student.sort()
+
+for i in range(n):
+  for j in range(n):
+    ans = 0
+    for k in range(4):
+      nr = i + dr[k]
+      nc = j + dc[k]
+      if 0 <= nr < n and 0 <= nc < n:
+        if arr[nr][nc] in students[arr[i][j] - 1]:
+          ans += 1
+
+    if ans != 0:
+      result += 10 ** (ans - 1)
+      
+print(result)
