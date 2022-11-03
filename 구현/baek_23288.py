@@ -22,7 +22,6 @@ def bfs(x, y):
 
   return cnt
 
-
 n, m, k = map(int, input().split())
 arr = []
 for _ in range(n):

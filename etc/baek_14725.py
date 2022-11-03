@@ -18,6 +18,3 @@ for _ in range(N):
   add(dic, input().split()[1:])
 
 printTree(dic, 0)
-
-
-
