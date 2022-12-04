@@ -12,14 +12,10 @@ graph.sort()
 graph = [member[1] for member in graph]
 
 for i in range(n):
-  cnt = 1
-  pre = graph[i]
-  for j in range(i + 1, n):
-    if pre < graph[j] :
-      pre = graph[j]
-      cnt += 1
-  dp[i] = cnt
+  for j in range(i):
+    if graph[i] > graph[j] :
+      dp[i] = max(dp[i], dp[j] + 1)
 
-print(graph)
 print(n - max(dp))
-print(dp)
+
+

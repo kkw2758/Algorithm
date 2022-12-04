@@ -26,4 +26,22 @@ result.reverse()
 print(max_dp)
 for value in result:
   print(value, end = " ")
-    
+
+
+
+# import bisect
+
+# N = int(input())
+# arr = list(map(int, input().split()))
+# dp = [arr[0]]
+
+# for i in range(1, N):
+#   if arr[i] > dp[-1]:
+#     dp.append(arr[i])
+#   else:
+#     idx = bisect.bisect_left(dp, arr[i])
+#     dp[idx] = arr[i]
+
+# print(len(dp))
+# for i in range(len(dp)):
+#   print(dp[i], end = " ")
