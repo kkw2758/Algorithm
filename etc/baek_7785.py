@@ -9,6 +9,6 @@ for _ in range(n):
   elif flag == "leave":
     del(in_company[name])
 
-in_compnay = sorted(list(in_company), reverse=True)
+in_company = sorted(list(in_company), reverse=True)
 for name in in_company:
   print(name)
