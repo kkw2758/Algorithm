@@ -72,11 +72,11 @@ def bfs(start):
       for i in range(4):
         nx = x + dx[i]
         ny = y + dy[i]
-        if 0 <= nx < N and 0 <= ny < M and not visited[nx][ny][w]:
-          if not graph[nx][ny][w]:
+        if 0 <= nx < N and 0 <= ny < M:
+          if graph[nx][ny]== 0 and visited[nx][ny][w] == 0:
             visited[nx][ny][w] = today + 1
             q.append((nx, ny, w))
-          elif w < K and not visited[nx][ny][w + 1]:
+          elif graph[nx][ny] == 1 and w < K and visited[nx][ny][w + 1] == 0:
             if not night:
               visited[nx][ny][w + 1] = today + 1
               q.append((nx, ny, w + 1))
@@ -88,7 +88,7 @@ def bfs(start):
   return -1
 
 N, M, K = map(int, input().split())
-graph = [list(map(int, input().strip().split())) for _ in range(N)]
+graph = [list(map(int, list(input().strip()))) for _ in range(N)]
 visited = [[[0] * (K + 1) for _ in range(M)] for _ in range(N)]
 visited[0][0] = [1] * (K + 1)
 print(bfs((0, 0, 0)))
