@@ -6,7 +6,7 @@
 #   i = 0
 
 #   for j in range(1, pattern_size):
-#     while i < 0 and pattern[i] != pattern[j]:
+#     while i > 0 and pattern[i] != pattern[j]:
 #       i = table[i - 1]
 
 #     if pattern[i] == pattern[j]:

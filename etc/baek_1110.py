@@ -5,7 +5,6 @@ N = int(input())
 cnt = 0
 temp = N
 while True:
-  print(temp)
   if temp < 10:
     temp = int(str(temp) * 2)
   else:

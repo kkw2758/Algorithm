@@ -20,7 +20,7 @@ def parametric(start, end):
       start = mid + 1
     else:
       end = mid - 1
-      
+
 max_tree = tree_height[-1]
 result = 0
 parametric(1, max_tree)

@@ -95,9 +95,9 @@ while left_idx < right_idx:
     if ans == 0:
       break
 
-    if tmp < 0:
-      left_idx += 1
-    else:
-      right_idx -= 1
+  if tmp < 0:
+    left_idx += 1
+  else:
+    right_idx -= 1
 
 print(liquids[ans_left], liquids[ans_right])

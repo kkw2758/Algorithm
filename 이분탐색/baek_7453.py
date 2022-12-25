@@ -47,13 +47,14 @@ cd.sort()
 
 i, j = 0, len(cd) - 1
 result = 0
+
 while i < len(ab) and j >= 0:
   if ab[i] + cd[j] == 0:
     nexti = i + 1
     nextj = j - 1
     while nexti < len(ab) and ab[i] == ab[nexti]:
       nexti += 1
-    while nextj >= 0 and cd[i] == cd[nextj]:
+    while nextj >= 0 and cd[j] == cd[nextj]:
       nextj -= 1
       
     result += (nexti - i) * (j - nextj)

@@ -13,7 +13,7 @@ def solution(x, y , d1, d2):
   temp_arr = [[0] * (N + 1) for _ in range(N + 1)]
   for i in range(d1 + 1):
     temp_arr[x + i][y - i] = 5
-    temp_arr[x + d2 + i][y + d2 - i] = 5
+    temp_arr[x + d2 + i][y + d2 - i] = 59
 
   for i in range(d2 + 1):
     temp_arr[x + i][y + i] = 5
