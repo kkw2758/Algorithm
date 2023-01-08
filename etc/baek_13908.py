@@ -23,14 +23,12 @@ for i in range(10 ** N):
 
 print(result)
 
-# # 백트래킹
+# 백트래킹
 N, M = map(int, input().split())
 if M == 0:
   know_numbers = []
 else:
   know_numbers = list(map(int, input().split()))
-
-print(know_numbers)
 
 def check(password):
   for know_number in know_numbers:
@@ -43,7 +41,6 @@ result = 0
 def dfs(password):
   global result
   if len(password) == N:
-    print(password)
     if check(password):
       result += 1
     return

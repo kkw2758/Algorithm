@@ -7,11 +7,6 @@ dy = [0, -1, 0, 1]
 arr = [list(map(int, input().split())) for _ in range(N)]
 rainbow_blocks = []
 
-# for i in range(N):
-#   for j in range(N):
-#     if arr[i][j] == 0:
-#       rainbow_blocks.append((i, j))
-
 def rotate_90(arr):
   n = len(arr)
   temp = [[0] * n for _ in range(n)]
@@ -87,7 +82,7 @@ def solution(arr):
     result += cnt ** 2
     for x, y in block_groups[0][4]:
       arr[x][y] = -2
-      
+
     arr = gravity(arr)
     arr = rotate_90(arr)
     arr = gravity(arr)

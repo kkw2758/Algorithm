@@ -43,7 +43,7 @@ for i in range(N):
   right = N - 2
   
   while left < right:
-    sum = numbers[left] + numbers[right]
+    sum = temp[left] + temp[right]
     if sum == numbers[i]:
       cnt += 1
       break

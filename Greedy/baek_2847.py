@@ -11,5 +11,4 @@ for i in range(N - 2, -1, - 1):
     cnt += numbers[i] - numbers[i + 1] + 1
     numbers[i] = numbers[i + 1] - 1
 
-print(numbers)
 print(cnt)

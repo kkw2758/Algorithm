@@ -19,7 +19,6 @@ def dfs(cnt):
         tmp.pop()
         visited[i] = False
         
-
 dfs(0)
 result = sorted(list(result))
 for i in result:
