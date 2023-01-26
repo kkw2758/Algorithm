@@ -4,8 +4,7 @@ from collections import deque
 
 board = [input().split() for _ in range(5)]
 result_set = set()
-for _ in board:
-  print(_)
+
 dx = [-1, 1, 0, 0]
 dy = [0, 0, -1, 1]
 

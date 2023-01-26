@@ -218,28 +218,28 @@
 # print(result)
 
 
-# import sys
-# input = sys.stdin.readline
+import sys
+input = sys.stdin.readline
 
-# N = int(input())
-# numbers = list(map(int, input().strip().split()))
-# # 인덱스 매칭 dict
-# dict = {}
-# result = [0] * N
+N = int(input())
+numbers = list(map(int, input().strip().split()))
+# 인덱스 매칭 dict
+dict = {}
+result = [0] * N
 
-# for i in range(len(numbers)):
-#   dict[numbers[i]] = i
+for i in range(len(numbers)):
+  dict[numbers[i]] = i
 
-# for i in numbers:
-#   cnt = 2
-#   while i * cnt <= 1000000:
-#     if i * cnt in dict:
-#       result[dict[i]] += 1
-#       result[dict[i * cnt]] -= 1
-#     cnt += 1
+for i in numbers:
+  cnt = 2
+  while i * cnt <= 1000000:
+    if i * cnt in dict:
+      result[dict[i]] += 1
+      result[dict[i * cnt]] -= 1
+    cnt += 1
 
-# for i in result:
-#   print(i, end = " ")
+for i in result:
+  print(i, end = " ")
 
 
 # N = int(input())

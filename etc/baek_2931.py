@@ -68,10 +68,10 @@ check_list, px, py = [], 0, 0
 bfs(sx, sy, [0, 1, 2, 3])
 bfs(zx, zy, [0, 1, 2, 3])
 
-# for i in range(M):
-#   for j in range(N):
-#     if board[i][j] != "." and not visited[i][j]:
-#       bfs(i, j, direction(board[i][j]))
+for i in range(M):
+  for j in range(N):
+    if board[i][j] != "." and not visited[i][j]:
+      bfs(i, j, direction(board[i][j]))
 
 check_list.sort()
 

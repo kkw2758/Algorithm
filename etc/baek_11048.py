@@ -1,6 +1,8 @@
 # 2023/01/15 Baek 11048
 
 import sys
+input = sys.stdin.readline
+
 N, M = map(int, input().split())
 
 board = [list(map(int, input().strip().split())) for _ in range(N)]
