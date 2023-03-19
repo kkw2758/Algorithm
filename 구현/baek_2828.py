@@ -13,5 +13,4 @@ for i in range(j):
     elif position > head + M - 1:
         cnt += position - (head + M - 1)
         head = position - M + 1
-    print(i, cnt)
 print(cnt)
