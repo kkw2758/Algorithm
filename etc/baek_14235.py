@@ -13,6 +13,6 @@ for _ in range(n):
         heapq.heappush(presents, -new_present)
     if new_presents[0] == 0:
       if presents:
-        print("result",-heapq.heappop(presents))
+        print(-heapq.heappop(presents))
       else:
-        print("result",-1)
+        print(-1)

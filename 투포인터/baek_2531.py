@@ -34,7 +34,7 @@ for _ in range(N):
 
 numbers += numbers[:-1]
 
-result = len(set(numbers))
+result = 0
 
 for start in range(N):
     temp = set(numbers[start:start + k] + [c])

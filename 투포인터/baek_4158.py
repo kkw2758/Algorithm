@@ -47,9 +47,8 @@ while True:
 
 from collections import defaultdict
 
-int_dict = defaultdict(int)
-
 while True:
+    int_dict = defaultdict(int)
     N, M = map(int, input().split())
     if (N, M) == (0, 0):
         break
@@ -59,7 +58,6 @@ while True:
     for i in range(N):
         int_dict[int(input())] += 1
 
-    print(int_dict)
     B = []
     for i in range(M):
         if int_dict[int(input())] == 1:

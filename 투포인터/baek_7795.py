@@ -118,7 +118,6 @@ for _ in range(T):
     for i in range(N):
         while start < M:
             if A[i] <= B[start]:
-                # result += start
                 break
             else: # A[i] > B[start]
                 start += 1
