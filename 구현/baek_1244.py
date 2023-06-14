@@ -37,3 +37,16 @@ for _ in range(students):
 
 for i in range(1, N + 1, 20):
     print(*status[i:i+20])
+
+# 다른 풀이
+# 출처 : https://codinghani.tistory.com/30
+
+def change(num):
+    if switch[num] == 0:
+        switch[num] = 1
+    else:
+        switch[num] = 0
+    return
+
+N = int(input())
+switch = [-1] + list(map(int, input().split()))
